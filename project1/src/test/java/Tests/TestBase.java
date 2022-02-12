@@ -16,11 +16,13 @@ public class TestBase {
 	protected RemoteWebDriver driver;
 	protected Logger log;
 	
-	@Parameters({"flatform"})
+	@Parameters({"flatform","capture_screenshots"})
 	@BeforeMethod()
-	public void beforeTest(String flatform) {
-		log = new Logger();
+	public void beforeTest(String flatform, String captureScreenshots) {
 		driver = DriverHelper.createDriver(flatform);
+		log = new Logger(this.driver, Boolean.parseBoolean(captureScreenshots));
+		
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Constants.MEDIUM_TIME, TimeUnit.SECONDS);
 		driver.get(Constants.BASE_URL);
 	}

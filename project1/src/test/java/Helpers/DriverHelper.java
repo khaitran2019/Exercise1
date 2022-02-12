@@ -25,9 +25,7 @@ public class DriverHelper {
 	
 	private static FirefoxDriver initFireFoxDriver() {
 		FirefoxDriverManager driverManager = new FirefoxDriverManager();
-		driverManager.setup();
-		
-		//FirefoxOptions opts = new FirefoxOptions();	
+		driverManager.setup();	
 		
 		FirefoxDriver driver= new FirefoxDriver();
 		return driver;

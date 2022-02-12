@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests" thread-count="1">
     <test name="Run tests on Chrome">
         <parameter name="flatform" value="Chrome"/>
-       
+       <parameter name="capture_screenshots" value="True"/>
         <classes>
             <class name="Tests.ValidateNewManufacturingOrder"/>
         </classes>

@@ -26,7 +26,7 @@ public class ManufacturingPage {
 	/**
 	 * Create order
 	 */
-	public void CreateOrder() {
+	public void NavigateToCreateOrder() {
 		btnCreate.click();
 	}
 }

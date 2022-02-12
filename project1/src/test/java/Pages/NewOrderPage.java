@@ -46,18 +46,12 @@ public class NewOrderPage {
 
 		// Handle case not found product name
 		Utils.Sleep(2);
-		
 		btnConfirm.click();
-		
-		System.out.println("6. 4");
-		
+	}
+	
+	public void MarkOrderAsDone() {
 		btnMarkAsDone.click();
-		System.out.println("6. 5");
-		
 		btnOK.click();
-		System.out.println("6. 6");
-		
 		btnApply.click();
-		System.out.println("6. 7");
 	}
 }
