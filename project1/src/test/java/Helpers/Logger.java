@@ -1,6 +1,8 @@
 package Helpers;
 
 import java.io.ByteArrayInputStream;
+
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,6 +21,7 @@ public class Logger {
 
 	public Logger(RemoteWebDriver _driver, boolean _captureScreenshots) {
 		log = LogManager.getLogger(Logger.class.getName());
+		BasicConfigurator.configure();
 		
 		this.driver = _driver;
 		this.captureScreenshots = _captureScreenshots;
@@ -31,7 +34,6 @@ public class Logger {
 	 */
 	public void info(String message) {
 		log.info(message);
-		System.out.println(message);
 		if (captureScreenshots) {
 			screenshot(message);
 		}

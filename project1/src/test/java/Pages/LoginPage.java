@@ -5,10 +5,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 	
-	private RemoteWebDriver driver;
-
 	// Declare web elements
 	@FindBy(xpath = "//input[@name='login']")
 	private WebElement txtUserName;
@@ -24,7 +22,7 @@ public class LoginPage {
 	 * @param _driver
 	 */
 	public LoginPage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
+        super(_driver);
         PageFactory.initElements(driver, this);
 	}
 	

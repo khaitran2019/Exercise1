@@ -5,9 +5,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NewProductPage {
+public class NewProductPage extends BasePage{
 	
-	private RemoteWebDriver driver;
+	private String title = "Odoo - New";
 
 	// Declare web elements
 	@FindBy(xpath = "//input[@name='name']")
@@ -24,7 +24,8 @@ public class NewProductPage {
 	 * @param _driver
 	 */
 	public NewProductPage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
+        super(_driver);
+        waitPageTitle(title);
         PageFactory.initElements(driver, this);
 	}
 	

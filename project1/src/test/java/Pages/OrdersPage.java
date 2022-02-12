@@ -4,33 +4,51 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class OrdersPage {
-	
-	private RemoteWebDriver driver;
+public class OrdersPage extends BasePage{
+
+	private String title = "Odoo - WH/MO";
 
 	// Declare web elements
 	@FindBy(xpath = "//a[@name='product_id']")
 	private WebElement linkProductName;
-	
-	
+
 	@FindBy(xpath = "//span[@name='qty_producing']")
 	private WebElement spanQuantity;
-	
+
 	/**
-	 * Constructor 
+	 * Constructor
+	 * 
 	 * @param _driver
 	 */
-	public OrdersPage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
-        PageFactory.initElements(driver, this);
+	public OrdersPage(RemoteWebDriver _driver) {
+		super(_driver);
+		waitPageTitle(title);
+		PageFactory.initElements(driver, this);
 	}
-		
-	public String getProductName() {
-		return linkProductName.getText();
+
+	public boolean doesProductNameExist(String productName) {
+		String xpath = String.format("//a[@name='product_id' and .='%s']", productName);
+		return doesElementExist(xpath);
 	}
 	
-	public String getQuantityText() {
-		return spanQuantity.getText();
+	public boolean doesQuantityExist(String quantity) {
+		String xpath = String.format("//span[@name='qty_producing' and .='%s']", quantity);
+		return doesElementExist(xpath);
+	}
+	
+	private boolean doesElementExist(String xpath) {
+		boolean isExisted = false;
+		try {
+			WebElement elm = driver.findElementByXPath(xpath);
+			if (elm.isDisplayed()) {
+				isExisted = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return isExisted;
 	}
 }

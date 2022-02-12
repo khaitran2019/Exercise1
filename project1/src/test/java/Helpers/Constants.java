@@ -1,11 +1,8 @@
 package Helpers;
 
 public class Constants {
-	private static final String SEPARATOR = System.getProperty("file.separator");
-	public static final String RUNTIME_SETTINGS_FILE_PATH = "run_tests/RuntimeSettings.txt".replace("/", SEPARATOR);
-
-	public static int SHORT_TIME = 10;
-	public static int MEDIUM_TIME = 2000;
+	public static int SHORT_TIME = 5;
+	public static int MEDIUM_TIME = 10;
 	public static int LONG_TIME = 30;
 	
 	public static final String BASE_URL = "https://aspireapp.odoo.com";

@@ -5,12 +5,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Helpers.Constants;
 import Helpers.Utils;
 
-public class NewOrderPage {
+public class NewOrderPage extends BasePage{
 	
-	private RemoteWebDriver driver;
+	private String title = "Odoo - New";
 
 	// Declare web elements
 	@FindBy(xpath = "(//input[contains(@id, 'o_field_input_')])[1]")
@@ -36,7 +35,8 @@ public class NewOrderPage {
 	 * @param _driver
 	 */
 	public NewOrderPage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
+        super(_driver);
+        waitPageTitle(title);
         PageFactory.initElements(driver, this);
 	}
 	
@@ -45,7 +45,8 @@ public class NewOrderPage {
 		txtProductName.sendKeys(productName);
 
 		// Handle case not found product name
-		Utils.Sleep(2);
+		waitForPopupItemDisplay(productName);
+		
 		btnConfirm.click();
 	}
 	
@@ -53,5 +54,10 @@ public class NewOrderPage {
 		btnMarkAsDone.click();
 		btnOK.click();
 		btnApply.click();
+	}
+	
+	private void waitForPopupItemDisplay(String productName) {
+		String xpath = String.format("//a[.='%s']", productName);
+		waitForElement(xpath);
 	}
 }

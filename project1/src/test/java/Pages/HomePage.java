@@ -4,11 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+public class HomePage extends BasePage{
 	
-	private RemoteWebDriver driver;
-
+	private String title = "Odoo";
+	
 	// Declare web elements
 	@FindBy(xpath = "//div[text()='Inventory']")
 	private WebElement divInventory;
@@ -20,8 +22,9 @@ public class HomePage {
 	 * Constructor 
 	 * @param _driver
 	 */
-	public HomePage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
+	public HomePage(RemoteWebDriver _driver) {  
+		super(_driver);
+		waitPageTitle(title);
         PageFactory.initElements(driver, this);
 	}
 	

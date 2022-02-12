@@ -5,9 +5,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class UpdateQuantityPage {
+public class UpdateQuantityPage extends BasePage{
 	
-	private RemoteWebDriver driver;
+	private String title= "Odoo - Update Quantity";
 
 	// Declare web elements
 	@FindBy(xpath = "//button[contains(text(),'Create')]")
@@ -27,24 +27,19 @@ public class UpdateQuantityPage {
 	 * @param _driver
 	 */
 	public UpdateQuantityPage(RemoteWebDriver _driver) {           
-        this.driver = _driver; 
+        super(_driver);
+        waitPageTitle(title);
         PageFactory.initElements(driver, this);
 	}
 	
 	
 	public void DefineQuantity(int quantity) {
-		System.out.println("DefineQuantity 0");
-		//btnCreate.click();
-		clickBtnCreate();
-		System.out.println("DefineQuantity 1");
+		//clickBtnCreate();
+		btnCreate.click();
 		// Init element again to update with new UI
-		PageFactory.initElements(driver, this);
 		txtQuantity.clear();
-		System.out.println("DefineQuantity 2");
 		txtQuantity.sendKeys(Integer.toString(quantity));
-		System.out.println("DefineQuantity 3");
 		btnSave.click();
-		System.out.println("DefineQuantity 4");
 	}
 	
 	public void ClickOnApplicationIcon() {
@@ -62,7 +57,7 @@ public class UpdateQuantityPage {
 	        	btnCreate.click();
 	            break;
 	        } catch(Exception e) {
-	        	e.printStackTrace();
+	        	// No need to log this exception
 	        }
 	        attempts++;
 	    }
