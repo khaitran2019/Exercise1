@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="2">
+    <test name="Run tests on Chrome">
+        <parameter name="flatform" value="Chrome"/>
+        <parameter name="capture_screenshots" value="True"/>
+        <classes>
+            <class name="Tests.ValidateNewManufacturingOrder"/>
+        </classes>
+    </test>
+	<test name="Run tests on Firefox">
+        <parameter name="flatform" value="Firefox"/>
+        <parameter name="capture_screenshots" value="True"/>
+        <classes>
+            <class name="Tests.ValidateNewManufacturingOrder"/>
+        </classes>
+    </test>
+</suite>
