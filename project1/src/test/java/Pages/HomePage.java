@@ -16,13 +16,15 @@ public class HomePage extends BasePage{
 	@FindBy(xpath = "//div[text()='Manufacturing']")
 	private WebElement divManufacturing;
 	
+	private String devXpathInventory= "//div[text()='Inventory']";
+	
 	/**
 	 * Constructor 
 	 * @param _driver
 	 */
 	public HomePage(RemoteWebDriver _driver) {  
 		super(_driver);
-		waitForElement("//div[text()='Inventory']");
+		waitForElement(devXpathInventory);
         PageFactory.initElements(driver, this);
 	}
 	

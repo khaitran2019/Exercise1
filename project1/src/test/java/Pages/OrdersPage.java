@@ -15,6 +15,8 @@ public class OrdersPage extends BasePage{
 
 	@FindBy(xpath = "//span[@name='qty_producing']")
 	private WebElement spanQuantity;
+	
+	private String btnXpathDoneState = "//button[@title='Current state' and contains(.,'Done')]";
 
 	/**
 	 * Constructor
@@ -24,7 +26,7 @@ public class OrdersPage extends BasePage{
 	public OrdersPage(RemoteWebDriver _driver) {
 		super(_driver);
 		// wait for page load ready
-		waitForElement("//button[@title='Current state' and contains(.,'Done')]");
+		waitForElement(btnXpathDoneState);
 		
 		PageFactory.initElements(driver, this);
 	}
