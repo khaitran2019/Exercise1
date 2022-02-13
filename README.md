@@ -26,7 +26,7 @@ This example was built and verify on Window 10. It requires the following softwa
   * The batch file will run the xml suite  "run_tests\chrome_firefox_window.xml"
   * XML suite file support 2 parameters:
      - flatform: It's a setting to specify test browser. Values: Chrome | Firefox  
-	 - capture_screenshots: It's a setting to capture screenshot of SUT and attach to allure report. Values: True | False
+	 - capture_screenshots: It's a setting to capture screenshots of SUT and attach them to allure report. Values: True | False
 
 ### Test result
 - The allure test report is stored in folder "allure-results"
