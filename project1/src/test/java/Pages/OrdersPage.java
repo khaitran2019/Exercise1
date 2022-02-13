@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrdersPage extends BasePage{
 
@@ -37,18 +35,5 @@ public class OrdersPage extends BasePage{
 	public boolean doesQuantityExist(String quantity) {
 		String xpath = String.format("//span[@name='qty_producing' and .='%s']", quantity);
 		return doesElementExist(xpath);
-	}
-	
-	private boolean doesElementExist(String xpath) {
-		boolean isExisted = false;
-		try {
-			WebElement elm = driver.findElementByXPath(xpath);
-			if (elm.isDisplayed()) {
-				isExisted = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return isExisted;
 	}
 }

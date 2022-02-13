@@ -34,32 +34,17 @@ public class UpdateQuantityPage extends BasePage{
 	
 	
 	public void DefineQuantity(int quantity) {
-		//clickBtnCreate();
 		btnCreate.click();
-		// Init element again to update with new UI
+		
+		// Clear textbox before type new text
 		txtQuantity.clear();
 		txtQuantity.sendKeys(Integer.toString(quantity));
+		
 		btnSave.click();
 	}
 	
 	public void ClickOnApplicationIcon() {
 		linkHome.click();
 	}
-	
-	/**
-	 * Handle stale element exception
-	 * Try to click 3 times
-	 */
-	private void clickBtnCreate() {
-		int attempts = 0;
-	    while(attempts < 3) {
-	        try {
-	        	btnCreate.click();
-	            break;
-	        } catch(Exception e) {
-	        	// No need to log this exception
-	        }
-	        attempts++;
-	    }
-	}
+
 }

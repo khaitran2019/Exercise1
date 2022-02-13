@@ -24,9 +24,6 @@ public class ManufacturingPage extends BasePage{
 	}
 	
 	
-	/**
-	 * Create order
-	 */
 	public void NavigateToCreateOrder() {
 		btnCreate.click();
 	}

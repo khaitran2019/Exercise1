@@ -9,6 +9,11 @@ import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 
 public class DriverHelper {
 		
+	/**
+	 * Create new instance for webdriver
+	 * @param flatform Firefox/Chrome
+	 * @return
+	 */
 	public static RemoteWebDriver createDriver(String flatform) {
 		
 		switch (flatform.toUpperCase()) {

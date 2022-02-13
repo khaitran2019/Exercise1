@@ -3,6 +3,11 @@ package Helpers;
 import java.util.UUID;
 
 public class Utils {
+	
+	/**
+	 * Generate a UDID string
+	 * @return
+	 */
 	public static String GetUDID() {
 		return UUID.randomUUID().toString();
 	}

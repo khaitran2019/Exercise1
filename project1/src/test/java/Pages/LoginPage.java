@@ -27,11 +27,6 @@ public class LoginPage extends BasePage {
 	}
 	
 	
-	/**
-	 * Login from Login page with given user name and password
-	 * @param userName
-	 * @param password
-	 */
 	public void Login(String userName, String password) {
 		txtUserName.sendKeys(userName);
 		txtPassword.sendKeys(password);
