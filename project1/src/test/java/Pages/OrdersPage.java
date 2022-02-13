@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class OrdersPage extends BasePage{
 
-	private String title = "Odoo - WH/MO";
+	//private String title = "Odoo - WH/MO";
 
 	// Declare web elements
 	@FindBy(xpath = "//a[@name='product_id']")
@@ -23,7 +23,9 @@ public class OrdersPage extends BasePage{
 	 */
 	public OrdersPage(RemoteWebDriver _driver) {
 		super(_driver);
-		waitPageTitle(title);
+		// wait for page load ready
+		waitForElement("//button[@title='Current state' and contains(.,'Done')]");
+		
 		PageFactory.initElements(driver, this);
 	}
 

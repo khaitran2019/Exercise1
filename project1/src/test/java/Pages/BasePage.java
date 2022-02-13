@@ -30,12 +30,12 @@ public class BasePage {
 	}
 	
 	/**
-	 * Wait for web element clickable in expected time
+	 * Wait for visibility of web element in expected time
 	 * @param xpath
 	 */
 	protected void waitForElement(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, Constants.MEDIUM_TIME);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 	
 	protected boolean doesElementExist(String xpath) {
